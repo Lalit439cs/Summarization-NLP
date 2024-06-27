@@ -1,0 +1,10 @@
+transformers
+datasets
+accelerate
+wandb
+textstat
+numpy 
+rouge-score
+bert-score
+summac
+pytesseract
