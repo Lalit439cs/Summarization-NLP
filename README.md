@@ -11,7 +11,7 @@ We have also participated in a related competition BioLaysumm, hosted by BioNLP 
 -**link.txt** - A link to the Google Drive folder containing the trained model <br>
 -**screenshot.jpg** -  a screenshot of our submission to CodaBench<br>
 -**prediction_result.zip** - predicted results on the test data that is submitted to CodaBench<br>
--**requirements.txt** - installation requirements to create a required environment. Other required thing will be pre-installed or cached in the environment
+-**requirements.txt** - installation requirements to create a required environment. Other required things are assumed to be pre-installed or cached in the environment
 
 ## DECLARATION
 <!-- **DECLARATION** <br> -->
