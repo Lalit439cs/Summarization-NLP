@@ -1,4 +1,4 @@
-# Summarization-NLP
+# Lay Summarization- BioNLP
 We have used a pre-trained language model (PLM) to train a system that produces a layman’s summary given a research publication from the biomedical domain.<br>
 We have also participated in a related competition BioLaysumm, hosted by BioNLP Workshop, ACL 2024 (https://www.codabench.org/competitions/1920/). Our submission (userid- lkm1ml) was in the top 10 at the time of this submission to the competition.
 
