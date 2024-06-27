@@ -1,0 +1,49 @@
+- Fine tuned flan-t5
+- combined both datasets
+
+HYPERPARAMS
+
+gconfig = GenerationConfig(
+        min_new_tokens=260,
+    	max_new_tokens=300,
+		do_sample=True,
+		temperature=0.2,
+		top_p=0.95,
+        decoder_start_token_id=0,
+		repetition_penalty=1.1,
+		eos_token_id=tokenizer.eos_token_id,
+		pad_token_id=tokenizer.eos_token_id,
+		num_return_sequences=1,
+	)
+
+# Define training args
+training_args = Seq2SeqTrainingArguments(
+    output_dir=repository_id,
+    per_device_train_batch_size=8,
+    per_device_eval_batch_size=8,
+    predict_with_generate=True,
+    fp16=False, # Overflows with fp16
+    learning_rate=1e-4,
+    lr_scheduler_type="cosine",
+    # lr_scheduler_kwargs={"num_warmup_steps":30},
+    num_train_epochs=5,
+    warmup_ratio=0.06,
+    # logging & evaluation strategies
+    logging_dir=f"{repository_id}/logs",
+    logging_strategy="steps",
+    logging_steps=500,
+    evaluation_strategy="epoch",
+    save_strategy="epoch",
+    save_total_limit=2,
+    load_best_model_at_end=True,
+    metric_for_best_model="rouge2",
+    # metric_for_best_model="overall_f1",
+    # push to hub parameters
+    report_to="tensorboard",
+    push_to_hub=False,
+    hub_strategy="every_save",
+    hub_model_id=repository_id,
+    hub_token=HfFolder.get_token(),
+    generation_config=gconfig,
+    weight_decay=0.01
+)
